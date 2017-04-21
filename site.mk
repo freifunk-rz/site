@@ -11,14 +11,12 @@ GLUON_SITE_PACKAGES := \
 	gluon-config-mode-contact-info \
 	gluon-ebtables-filter-multicast \
 	gluon-ebtables-filter-ra-dhcp \
-	gluon-luci-admin \
-	gluon-luci-autoupdater \
-	gluon-luci-portconfig \
-	gluon-luci-private-wifi \
-	gluon-luci-wifi-config \
-	gluon-next-node \
-	gluon-neighbour-info \
+	gluon-web-admin \
+	gluon-web-autoupdater \
+	gluon-web-private-wifi \
+	gluon-web-wifi-config \
 	gluon-mesh-vpn-fastd \
+	gluon-web-mesh-vpn-fastd \
 	gluon-radvd \
 	gluon-setup-mode \
 	gluon-status-page \
@@ -26,34 +24,35 @@ GLUON_SITE_PACKAGES := \
 	iptables \
 	haveged
 
+###### SSID Changer don't work atm #####
 # add offline ssid only if the target has wifi device
-ifeq ($(GLUON_TARGET),ar71xx-generic)
+ifeq ($(GLUON_TARGET),ar71xx-_generic)
 GLUON_SITE_PACKAGES += \
 	gluon-ssid-changer
 endif
 
-ifeq ($(GLUON_TARGET),ar71xx-mikrotik)
+ifeq ($(GLUON_TARGET),ar71xx-_mikrotik)
 GLUON_SITE_PACKAGES += \
 	gluon-ssid-changer
 endif
 
-ifeq ($(GLUON_TARGET),ar71xx-nand)
+ifeq ($(GLUON_TARGET),ar71xx-_nand)
 GLUON_SITE_PACKAGES += \
 	gluon-ssid-changer
 endif
 
-ifeq ($(GLUON_TARGET),mpc85xx-generic)
+ifeq ($(GLUON_TARGET),mpc85xx-_generic)
 GLUON_SITE_PACKAGES += \
 	gluon-ssid-changer
 endif
 
-ifeq ($(GLUON_TARGET),ramips-rt305x)
+ifeq ($(GLUON_TARGET),ramips-_rt305x)
 GLUON_SITE_PACKAGES += \
 	gluon-ssid-changer
 endif
 
 # add addition network drivers and usb stuff only to targes where disk space does not matter.
-ifeq ($(GLUON_TARGET),x86-generic)
+ifeq ($(GLUON_TARGET),x86-_generic)
 GLUON_SITE_PACKAGES += \
         kmod-usb-core \
         kmod-usb-ohci-pci \
@@ -64,7 +63,7 @@ GLUON_SITE_PACKAGES += \
         kmod-usb-net-dm9601-ether 
 endif
 
-ifeq ($(GLUON_TARGET),x86-64)
+ifeq ($(GLUON_TARGET),x86-_64)
 GLUON_SITE_PACKAGES += \
         kmod-usb-core \
         kmod-usb-ohci-pci \
@@ -77,7 +76,7 @@ endif
 
 # Add offline ssid, network drivers and usb stuff to raspberry and banana pi images
 
-ifeq ($(GLUON_TARGET),brcm2708-bcm2708)
+ifeq ($(GLUON_TARGET),brcm2708-_bcm2708)
 GLUON_SITE_PACKAGES += \
         gluon-ssid-changer \
         kmod-usb-core \
@@ -88,7 +87,7 @@ GLUON_SITE_PACKAGES += \
         kmod-usb-net-dm9601-ether 
 endif
 
-ifeq ($(GLUON_TARGET),brcm2708-bcm2709)
+ifeq ($(GLUON_TARGET),brcm2708-_bcm2709)
 GLUON_SITE_PACKAGES += \
         gluon-ssid-changer \
         kmod-usb-core \
@@ -99,7 +98,7 @@ GLUON_SITE_PACKAGES += \
         kmod-usb-net-dm9601-ether
 endif
 
-ifeq ($(GLUON_TARGET),sunxi)
+ifeq ($(GLUON_TARGET),sunxi_)
 GLUON_SITE_PACKAGES += \
         gluon-ssid-changer \
         kmod-usb-core \
@@ -110,7 +109,7 @@ GLUON_SITE_PACKAGES += \
         kmod-usb-net-dm9601-ether
 endif
 
-DEFAULT_GLUON_RELEASE := 2016.2.1+exp$(shell date '+%Y%m%d')
+DEFAULT_GLUON_RELEASE := 2017.0.1+exp$(shell date '+%Y%m%d')
 
 #GLUON_RELEASE ?= $(DEFAULT_GLUON_RELEASE)
 GLUON_RELEASE ?= $(DEFAULT_GLUON_RELEASE)
