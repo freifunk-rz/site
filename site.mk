@@ -11,6 +11,8 @@ GLUON_SITE_PACKAGES := \
 	gluon-config-mode-contact-info \
 	gluon-ebtables-filter-multicast \
 	gluon-ebtables-filter-ra-dhcp \
+	gluon-ebtables-source-filter \
+	gluon-ebtables-segment-mld \
 	gluon-web-admin \
 	gluon-web-network \
 	gluon-web-autoupdater \
