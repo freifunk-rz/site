@@ -16,10 +16,9 @@ GLUON_SITE_PACKAGES := \
 	gluon-luci-portconfig \
 	gluon-luci-private-wifi \
 	gluon-luci-wifi-config \
+	gluon-next-node \
 	gluon-neighbour-info \
 	gluon-mesh-vpn-fastd \
-	gluon-luci-mesh-vpn-fastd \
-	gluon-client-bridge \
 	gluon-radvd \
 	gluon-setup-mode \
 	gluon-status-page \
@@ -111,7 +110,7 @@ GLUON_SITE_PACKAGES += \
         kmod-usb-net-dm9601-ether
 endif
 
-DEFAULT_GLUON_RELEASE := 2016.2.1+exp$(shell date '+%Y%m%d')
+DEFAULT_GLUON_RELEASE := 2016.2.6+exp$(shell date '+%Y%m%d')
 
 #GLUON_RELEASE ?= $(DEFAULT_GLUON_RELEASE)
 GLUON_RELEASE ?= $(DEFAULT_GLUON_RELEASE)
