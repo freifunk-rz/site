@@ -19,6 +19,7 @@ GLUON_SITE_PACKAGES := \
 	gluon-next-node \
 	gluon-neighbour-info \
 	gluon-mesh-vpn-fastd \
+	gluon-luci-mesh-vpn-fastd \
 	gluon-radvd \
 	gluon-setup-mode \
 	gluon-status-page \
@@ -113,13 +114,10 @@ endif
 DEFAULT_GLUON_RELEASE := 2016.2.6+exp$(shell date '+%Y%m%d')
 
 #GLUON_RELEASE ?= $(DEFAULT_GLUON_RELEASE)
-GLUON_RELEASE ?= $(DEFAULT_GLUON_RELEASE)
+GLUON_RELEASE ?= 2016.2.6
 
 GLUON_BRANCH ?= experimental
 export GLUON_BRANCH
-
-#GLUON_TARGET ?= ar71xx-generic
-#export GLUON_TARGET
 
 # Default priority for updates.
 GLUON_PRIORITY ?= 0
