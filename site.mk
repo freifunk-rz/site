@@ -11,15 +11,15 @@ GLUON_SITE_PACKAGES := \
 	gluon-config-mode-contact-info \
 	gluon-ebtables-filter-multicast \
 	gluon-ebtables-filter-ra-dhcp \
-	gluon-luci-admin \
-	gluon-luci-autoupdater \
-	gluon-luci-portconfig \
-	gluon-luci-private-wifi \
-	gluon-luci-wifi-config \
-	gluon-neighbour-info \
+	gluon-ebtables-source-filter \
+	gluon-ebtables-segment-mld \
+	gluon-web-admin \
+	gluon-web-network \
+	gluon-web-autoupdater \
+	gluon-web-private-wifi \
+	gluon-web-wifi-config \
 	gluon-mesh-vpn-fastd \
-	gluon-luci-mesh-vpn-fastd \
-	gluon-client-bridge \
+	gluon-web-mesh-vpn-fastd \
 	gluon-radvd \
 	gluon-setup-mode \
 	gluon-status-page \
@@ -29,6 +29,11 @@ GLUON_SITE_PACKAGES := \
 
 # add offline ssid only if the target has wifi device
 ifeq ($(GLUON_TARGET),ar71xx-generic)
+GLUON_SITE_PACKAGES += \
+	gluon-ssid-changer
+endif
+
+ifeq ($(GLUON_TARGET),ar71xx-tiny)
 GLUON_SITE_PACKAGES += \
 	gluon-ssid-changer
 endif
@@ -111,7 +116,7 @@ GLUON_SITE_PACKAGES += \
         kmod-usb-net-dm9601-ether
 endif
 
-DEFAULT_GLUON_RELEASE := 2016.2.1+exp$(shell date '+%Y%m%d')
+DEFAULT_GLUON_RELEASE := 2017.1.3+exp$(shell date '+%Y%m%d')
 
 #GLUON_RELEASE ?= $(DEFAULT_GLUON_RELEASE)
 GLUON_RELEASE ?= $(DEFAULT_GLUON_RELEASE)
