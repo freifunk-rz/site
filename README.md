@@ -13,6 +13,7 @@ Dann behebe den Fehler in dem entsprechenden Branch, ob die Änderungen in Maste
 
 
 ## Script Beispiel zum automatischen Erstellen:
+```
 #!/bin/bash
 start=$(date +%s)
 CORES=$(expr $(nproc) + 1)
@@ -26,3 +27,4 @@ done
 echo "alle Targets wurden erfolgreich erstellt"
 echo -n "finished: "; date
 echo "Dauer: $((($(date +%s)-start)/60)) Minuten"
+```
