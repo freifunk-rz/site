@@ -24,6 +24,7 @@ for TARGET in ar71xx-generic ar71xx-tiny ar71xx-nand brcm2708-bcm2708 brcm2708-b
         echo "################# $(date) start building target $TARGET #################"
         make -j$CORES GLUON_TARGET=$TARGET GLUON_RELEASE=$RELEASE GLUON_BRANCH=$BRANCH || exit 1
 done
+make manifest GLUON_BRANCH=$BRANCH GLUON_RELEASE=$RELEASE
 echo "alle Targets wurden erfolgreich erstellt"
 echo -n "finished: "; date
 echo "Dauer: $((($(date +%s)-start)/60)) Minuten"
