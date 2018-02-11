@@ -1,55 +1,58 @@
 GLUON_SITE_PACKAGES := \
-	gluon-mesh-batman-adv-15 \
-	gluon-alfred \
-	gluon-respondd \
-	gluon-autoupdater \
-	gluon-config-mode-core \
-	gluon-config-mode-hostname \
-	gluon-config-mode-autoupdater \
-	gluon-config-mode-mesh-vpn \
-	gluon-config-mode-geo-location \
-	gluon-config-mode-contact-info \
-	gluon-ebtables-filter-multicast \
-	gluon-ebtables-filter-ra-dhcp \
-	gluon-luci-admin \
-	gluon-luci-autoupdater \
-	gluon-luci-portconfig \
-	gluon-luci-private-wifi \
-	gluon-luci-wifi-config \
-	gluon-next-node \
-	gluon-neighbour-info \
-	gluon-mesh-vpn-fastd \
-	gluon-radvd \
-	gluon-setup-mode \
-	gluon-status-page \
-	iwinfo \
-	iptables \
-	haveged
+    gluon-mesh-batman-adv-15 \
+    gluon-alfred \
+    gluon-respondd \
+    gluon-autoupdater \
+    gluon-config-mode-core \
+    gluon-config-mode-hostname \
+    gluon-config-mode-autoupdater \
+    gluon-config-mode-mesh-vpn \
+    gluon-config-mode-geo-location \
+    gluon-config-mode-contact-info \
+    gluon-ebtables-filter-multicast \
+    gluon-ebtables-filter-ra-dhcp \
+    gluon-web-admin \
+    gluon-web-network \
+    gluon-web-autoupdater \
+    gluon-web-private-wifi \
+    gluon-web-wifi-config \
+    gluon-mesh-vpn-fastd \
+    gluon-web-mesh-vpn-fastd \
+    gluon-radvd \
+    gluon-setup-mode \
+    gluon-status-page \
+    iwinfo \
+    haveged
 
 # add offline ssid only if the target has wifi device
 ifeq ($(GLUON_TARGET),ar71xx-generic)
 GLUON_SITE_PACKAGES += \
-	gluon-ssid-changer
+    gluon-ssid-changer
+endif
+
+ifeq ($(GLUON_TARGET),ar71xx-tiny)
+GLUON_SITE_PACKAGES += \
+    gluon-ssid-changer
 endif
 
 ifeq ($(GLUON_TARGET),ar71xx-mikrotik)
 GLUON_SITE_PACKAGES += \
-	gluon-ssid-changer
+    gluon-ssid-changer
 endif
 
 ifeq ($(GLUON_TARGET),ar71xx-nand)
 GLUON_SITE_PACKAGES += \
-	gluon-ssid-changer
+    gluon-ssid-changer
 endif
 
 ifeq ($(GLUON_TARGET),mpc85xx-generic)
 GLUON_SITE_PACKAGES += \
-	gluon-ssid-changer
+    gluon-ssid-changer
 endif
 
 ifeq ($(GLUON_TARGET),ramips-rt305x)
 GLUON_SITE_PACKAGES += \
-	gluon-ssid-changer
+    gluon-ssid-changer
 endif
 
 # add addition network drivers and usb stuff only to targes where disk space does not matter.
@@ -61,7 +64,7 @@ GLUON_SITE_PACKAGES += \
         kmod-usb-hid \
         kmod-usb-net \
         kmod-usb-net-asix \
-        kmod-usb-net-dm9601-ether 
+        kmod-usb-net-dm9601-ether
 endif
 
 ifeq ($(GLUON_TARGET),x86-64)
@@ -72,7 +75,7 @@ GLUON_SITE_PACKAGES += \
         kmod-usb-hid \
         kmod-usb-net \
         kmod-usb-net-asix \
-        kmod-usb-net-dm9601-ether 
+        kmod-usb-net-dm9601-ether
 endif
 
 # Add offline ssid, network drivers and usb stuff to raspberry and banana pi images
@@ -85,7 +88,7 @@ GLUON_SITE_PACKAGES += \
         kmod-usb-hid \
         kmod-usb-net \
         kmod-usb-net-asix \
-        kmod-usb-net-dm9601-ether 
+        kmod-usb-net-dm9601-ether
 endif
 
 ifeq ($(GLUON_TARGET),brcm2708-bcm2709)
@@ -110,13 +113,12 @@ GLUON_SITE_PACKAGES += \
         kmod-usb-net-dm9601-ether
 endif
 
-DEFAULT_GLUON_RELEASE := 2016.2.6+exp$(shell date '+%Y%m%d')
+DEFAULT_GLUON_RELEASE := 2017.1.5+t$(shell date '+%Y%m%d')
 
-#GLUON_RELEASE ?= $(DEFAULT_GLUON_RELEASE)
 GLUON_RELEASE ?= $(DEFAULT_GLUON_RELEASE)
 
-GLUON_BRANCH ?= experimental
-export GLUON_BRANCH
+#GLUON_BRANCH ?= testing
+#export GLUON_BRANCH
 
 #GLUON_TARGET ?= ar71xx-generic
 #export GLUON_TARGET
